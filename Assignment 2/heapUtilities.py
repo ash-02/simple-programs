@@ -1,6 +1,6 @@
 def is_max_heap(arr):
     n = len(arr)
-    # print(arr)
+    print(arr)
 
     for i in range(n // 2 - 1, -1, -1):
         left_child = left(i)
