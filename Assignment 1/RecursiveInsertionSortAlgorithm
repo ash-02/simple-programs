@@ -1,0 +1,14 @@
+InsertionSort(A, N)
+    for j = 1 to N
+        Key = A[j]
+        i = j - 1
+        while A[i] > Key and i >= 0:
+            A[i + 1] = A[i]
+            i = i - 1
+        A[i + 1] = Key
+
+RecursionLoop(A, N)
+    if N > 1:
+        SubLength = n - 1
+        RecursionLoop(A, SubLength)
+        InsertionSort(A, SubLength + 1)
