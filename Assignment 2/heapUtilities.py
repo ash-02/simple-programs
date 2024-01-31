@@ -1,12 +1,12 @@
-def is_max_heap(arr):
-    n = len(arr)
-    print(arr)
+def is_max_heap(A):
+    n = len(A)
+    print(A)
 
     for i in range(n // 2 - 1, -1, -1):
-        left_child = left(i)
-        right_child = right(i)
+        l = left(i)
+        r = right(i)
 
-        if (left_child < n and arr[left_child] > arr[i]) or (right_child < n and arr[right_child] > arr[i]):
+        if (l < n and A[l] > A[i]) or (r < n and A[r] > A[i]):
             return False
         
     return True

@@ -1,6 +1,6 @@
 import heapUtilities
 
-def maxHeapify(A, i, n):
+def maxHeapify(A, i, heapSize):
 
     largest = i
     subtreeSorted = False
@@ -10,13 +10,13 @@ def maxHeapify(A, i, n):
         l = heapUtilities.left(i)
         r = heapUtilities.right(i)
 
-        if l < n and A[l] > A[i]:
+        if l <= heapSize and A[l] > A[i]:
             largest = l
         
         else:
             largest = i
 
-        if r < n and A[r] > A[largest]:
+        if r <= heapSize and A[r] > A[largest]:
             largest = r
         
         if largest != i:
@@ -26,9 +26,10 @@ def maxHeapify(A, i, n):
             subtreeSorted = True
 
 def buildMaxHeap(A):
-    n = len(A)
-    for i in range(n // 2 , -1, -1):
-        maxHeapify(A, i, n)
+    N = len(A) - 1
+    heapSize = N
+    for i in range(heapSize // 2, -1, -1):
+        maxHeapify(A, i, heapSize)
 
 A = [4, 10, 3, 5, 1, 8, 7, 2, 9, 6]
 print("Original Array:")
