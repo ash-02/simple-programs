@@ -1,0 +1,7 @@
+MAX-HEAP-DELETE(A, i)
+    A[i] = A[A.heap_size]
+    A.heap_size = A.heap_size - 1
+    MAX-HEAPIFY(A)
+
+
+    

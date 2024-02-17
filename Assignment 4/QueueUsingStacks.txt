@@ -1,0 +1,29 @@
+StackEmpty(S):
+    if S.top == 0
+        return True
+    return False
+
+StackPush(S, x):
+    if S.top == S.size:
+        error "Stack Overflow"
+    S.top = S.top + 1
+    S[S.top] = x
+
+StackPop(S):
+    if StackEmpty(S):
+        error "Stack Underflow"
+    else:
+        S.top = S.top - 1
+    return S[S.top + 1]
+
+EnQueue(S1, S2, x):
+    StackPush(S1, x)
+
+DeQueue(S1, S2, x):
+    if StackEmpty(S2) == True:
+        if StackEmpty(S1) == True:
+            error "Queue Underflow"
+        else
+            While(StackEmpty(S1) == False):
+                StackPush(S2, StackPop(S1))
+    return StackPop(S2)
