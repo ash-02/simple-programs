@@ -5,8 +5,8 @@ def maxHeapify(A, i):
 
     while(subtreeSorted is False):
 
-        l = heapUtilities.left(i)
-        r = heapUtilities.right(i)
+        l = (2*i)
+        r = (2*i) + 1
 
         if l <= A.heapSize and A[l] > A[i]:
             largest = l
@@ -24,5 +24,5 @@ def maxHeapify(A, i):
 
 def buildMaxHeap(A):
 	A.heapSize = len(A)
-    for i = n // 2 downto 0:
+    for i = n // 2 - 1 downto 1:
         maxHeapify(A, i)

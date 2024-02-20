@@ -1,0 +1,19 @@
+Reverse-list(L):
+        CurrentPrev = Null
+        CurrentNext = Null
+        node = L.head
+        CurrentHead = L.head
+        while node != Null:
+                CurrentNext = node.next
+                node.next = CurrentPrev
+                CurrentPrev = node
+                node = CurrentNext
+        L.head = CurrentPrev
+        L.tail = CurrentHead
+
+
+First we initialise the values accordingly (i.e.) node is set to the current List’s Head, CurrentNext and CurrentPrev is set to null.
+Then we start to loop through the LinkedList with a terminating condition of the node should not be null.
+During each iteration of the linked list, we do the following steps:
+Set the CurrentNext variable to the next node to the current node. This is done because after we change (or) reverse the next of the current node to the previous node, there will be no way for us to reach the next node as this is a singly linked list.
+Now we can change the current node’s next to the CurrentPrev node. This is the step where we reverse the next of the current node to the previous node.

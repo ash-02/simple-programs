@@ -1,7 +1,10 @@
 MAX-HEAP-DELETE(A, i)
-    A[i] = A[A.heap_size]
-    A.heap_size = A.heap_size - 1
-    MAX-HEAPIFY(A)
+        if A.heap_size < 1
+                error "heap underflow"
 
+        if A.heap_size < i
+                error "index i is larger than the heap size"
 
-    
+        A[i] = A[A.heap_size]
+        A.heap_size = A.heap_size - 1
+        MAX-HEAPIFY(A)

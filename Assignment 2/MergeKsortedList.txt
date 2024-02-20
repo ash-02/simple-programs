@@ -1,0 +1,22 @@
+MergeKSortedLists(KLists):
+        result = []
+        minHeap = []
+
+        if KLists.length() == 0:
+                return result
+
+        for i in range(KLists.length()):
+                if KLists[i]:
+                        Min-Heap-Insert(minHeap, (KLists[i][0], i, 0))
+        
+        while minHeap.isempty() != true:
+                ListId, ListValue, IndexofValue = Heap-Extract-Min(minHeap)
+                result.append(ListValue)
+                
+                if IndexofValue+1 < KLists[ListId].length():
+                        Min-Heap-Insert(
+                            minHeap, 
+                            (KLists[ListId][IndexofValue+1], ListId, IndexofValue+1)
+                        )
+
+        return result

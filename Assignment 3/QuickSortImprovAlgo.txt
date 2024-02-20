@@ -14,3 +14,23 @@ PARTITION`(A, p, r)
 
     exchange A[i + 1] with A[r]
     return i + 1, t
+
+
+
+This algorithm is a variation of the partition procedure in the QuickSort algorithm. It's designed to handle arrays with many duplicate elements more efficiently. Here's a step-by-step explanation:
+
+PARTITION(A, p, r): This function takes an array A and two indices p and r as input. The goal is to partition the subarray A[p..r] around a pivot element A[r].
+
+x = A[r]: The pivot element is chosen as the last element of the subarray.
+
+i = p - 1 and t = p - 1: Two indices i and t are initialized to p - 1. i keeps track of the position where the next element smaller than the pivot will go, and t keeps track of the position where the next element equal to the pivot will go.
+
+The for loop from j = p to r - 1 iterates over each element in the subarray.
+
+If A[j] < x, the element is less than the pivot. It's swapped with the element at A[i + 1], and both i and t are incremented.
+
+If A[j] == x, the element is equal to the pivot. It's swapped with the element at A[t + 1], and t is incremented.
+
+After the loop, A[i + 1] is swapped with the pivot A[r]. This places the pivot in its correct position in the sorted array.
+
+The function returns i + 1 and t. These are the indices that bound the section of the array with elements equal to the pivot. This information can be used to skip over these elements in subsequent recursive calls, improving efficiency when there are many duplicates.
