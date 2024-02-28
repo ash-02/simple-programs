@@ -12,7 +12,14 @@ def randomized_partition(arr, p, r):
     arr[i + 1], arr[r] = arr[r], arr[i + 1]
     return i + 1
 
-def randomized_select(arr, p, r, i):
+def randomized_select(arr, n, i):
+
+    if i < 1 or i > n:
+        return "Error: i out of range"
+    
+    p = 0
+    r = n - 1
+
     while p < r:
         q = randomized_partition(arr, p, r)
         k = q - p + 1
@@ -26,7 +33,7 @@ def randomized_select(arr, p, r, i):
     return arr[p]
 
 # Example usage:
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+arr = [1, 2, 3, 4, 4, 6, 7, 8, 9]
 i = 2
-result = randomized_select(arr, 0, len(arr) - 1, i)
+result = randomized_select(arr, len(arr), i)
 print(f"The {i}th smallest element in the array is: {result}")

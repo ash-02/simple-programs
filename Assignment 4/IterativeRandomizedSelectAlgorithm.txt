@@ -1,4 +1,11 @@
-Randomized-select(A, p, r, i):
+Randomized-select(A, n, i):
+        
+        if i < 1 or i > n:
+                return "Error: i out of range"
+        
+        p = 1
+        r = n
+
         while p < r:
                 q = Randomized-Partition(A, p, r)
                 k = q - p + 1

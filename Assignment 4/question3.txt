@@ -1,0 +1,26 @@
+Question 3:
+Given n > 2 distinct numbers, you want to find a number that is neither the minimum nor the
+maximum. What is the smallest number of comparisons that you need to perform?
+
+Answer:
+
+Find_neither_min_max(arr):
+        
+        if arr.length() <= 2:
+                return "Array length must be greater than 2"
+
+        minimumElement = arr[0]
+        maximumElement = arr[1]
+        middleElement = arr[2]
+
+        if arr[0] > arr[1]:
+                minimumElement = arr[1]
+                maximumElement = arr[0]
+        
+        if arr[2] < minimumElement:
+                middleElement = minimumElement
+        
+        if arr[2] > maximumElement:
+                middleElement = maximumElement
+        
+        return middleElement
