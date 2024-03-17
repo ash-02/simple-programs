@@ -1,0 +1,40 @@
+def Enqueue(L, newNode):
+        node = null
+        if L.head == Null:
+                L.head = newNode
+        else:
+                node = L.tail
+                node.next = newNode
+        newNode.next = Null
+        L.tail = newNode
+
+def Dequeue(L):
+        if L.head == None:
+                error "Queue Underflow"
+        node = L.head.next
+        delNode = L.head
+        if L.head == L.tail:
+                L.tail = Null
+        L.head = node
+        delNode.next = Null
+        return delNode
+
+Explanation:
+
+Enqueue Method:
+
+In order to implement a queue's Enqueue method using Linked list, first we have to check whether the queue is empty or not.
+If the queue is empty then, we just place the new node at the head of the queue, set the next of the new node to null and set the tail of the queue to the new node.
+if the queue is not empty, then we set the auxilarry node variable to the tail of the queue. Then we set the next of the auxilarry node(tail of the queue) to the new node.
+Then, whatever the state of the queue is, we set the next of the new node to null and set the tail of the queue to the new node.
+
+Dequeue Method:
+
+In order to implement a queue's Dequeue method using Linked list, first we have to check if the queue has elements or not.
+If the queue is empty, then we throw an Queue Underflow error.
+If the queue is not empty, then we procced to remove the head of the queue.
+We first set an auxilarry node variable to the next of the head of the queue.
+Then we set the a new variable named delNode, the node to be deleted, to the head of the queue.
+Then we check if the head of the queue is the same as the tail of the queue, if it is, then we set the tail of the queue to null.
+Then we set the head of the Linked List (queue) to the auxilarry node (which is the node next to the head of the queue).
+Then we set the next of the delNode to null and return the delNode.

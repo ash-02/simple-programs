@@ -1,0 +1,13 @@
+Iterative_Inorder_Tree_Walk(root):
+        x = root
+        stack = []
+        while True:
+                if x is not None:
+                        stack.push(x)
+                        x = x.left
+                else if len(stack) > 0:
+                        x = stack.pop()
+                        print(x.key)
+                        x = x.right
+                else:
+                        break
