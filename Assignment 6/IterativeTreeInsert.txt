@@ -1,0 +1,36 @@
+def Recursive_Tree_Insert(T, current_parent, new_node):
+        if T.root is None:
+                T.root = new_node
+                new_node.parent = None
+        else:
+                if new_node.key < current_parent.key:
+                        next_node = current_parent.left
+                else:
+                        next_node = current_parent.right
+                if next_node is None:
+                        if new_node.key < current_parent.key:
+                                current_parent.left = new_node
+                        else:
+                                current_parent.right = new_node
+                        new_node.parent = current_parent
+                else:
+                        Recursive_Tree_Insert( T, next_node, new_node)
+
+
+def CheckIfEmptyAndInsert(root, new_node):
+        if root == None:
+                root = new_node
+        else:
+                recursive_tree_insert(None, root, new_node)
+
+def recursive_tree_insert(parent, leaf, new_node):
+        if leaf == None:
+                new_node.p = parent
+                if new_node.key < parent.key:
+                        parent.left = new_node
+                else:
+                        parent.right = new_node
+        elif leaf.key > new_node.key:
+                recursive_tree_insert(leaf, leaf.left, new_node)
+        else
+                recursive_tree_insert(leaf, leaf.right, new_node)

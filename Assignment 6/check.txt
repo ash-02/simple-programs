@@ -1,0 +1,13 @@
+root = 38
+
+root.left = 19
+root.left.left = 12
+root.left.left.right = 15
+root.left.right = 28
+root.left.right.left = 21
+root.left.right.right = 25
+
+root.right = 41
+root.right.left = 39
+root.right.left.right = 40
+root.right.right = 45

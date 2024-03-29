@@ -1,0 +1,28 @@
+def LCSReconstruction(c, x, y, i, j):
+    if c[i, j] == 0:
+        return
+    
+    if x[i] == y[j]:
+        LCSReconstruction(c, x, y, i - 1, j - 1)
+        print x[i]
+    
+    else if c[i - 1, j] >= c[i, j - 1]:
+        LCSReconstruction(c, x, y, i - 1, j)
+    
+    else:
+        LCSReconstruction(c, x, y, i, j - 1)
+
+def LCSReconstruction(c, x, y, i, j):
+        if c[i, j] == 0:
+                return
+        
+        if c[i, j] == c[i - 1, j - 1] + 1:
+                LCSReconstruction(c, x, y, i - 1, j - 1)
+                print x[i]
+        
+        else if c[i, j] == c[i - 1, j]:
+                LCSReconstruction(c, x, y, i - 1, j)
+        
+        else:
+                LCSReconstruction(c, x, y, i, j - 1)
+    

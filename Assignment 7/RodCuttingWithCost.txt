@@ -1,0 +1,11 @@
+rod_cutting_with_cost(p, n, r, c):
+        if r[n] >= 0:
+                return r[n]
+        if n == 0:
+                q = 0
+        else:
+                q = -∞
+                for i = 1 to n:
+                    q = max(q, p[i] + rod_cutting_with_cost(p, n - i, r, c) - c)
+        r[n] = q
+        return q
