@@ -1,8 +1,20 @@
+def PRINTlcs(c, X, Y, i, j):
+    if c[i][j] == 0:
+        return
+    if X[i - 1] == Y[j - 1]:
+        PRINTlcs(c, X, Y, i - 1, j - 1)
+        print(X[i - 1], end="")
+    elif c[i - 1][j] > c[i][j - 1]:
+        PRINTlcs(c, X, Y, i - 1, j)
+    else:
+        PRINTlcs(c, X, Y, i, j - 1)
+
 def print_lcs(C, X, Y, i, j):
     if C[i][j] == 0:
         return ""
     if C[i][j] == C[i - 1][j - 1] + 1:
-        return print_lcs(C, X, Y, i - 1, j - 1) + X[i - 1]
+        print_lcs(C, X, Y, i - 1, j - 1)
+        return print(X[i - 1], end="")
     elif C[i][j] == C[i - 1][j]:
         return print_lcs(C, X, Y, i - 1, j)
     else:
@@ -33,8 +45,8 @@ def lcs_length_with_tables(X, Y):
 
     return C, B
 
-X = "AGGTAB"
-Y = "GXTXAYB"
+X = "ABCBDAB"
+Y = "BDCABA"
 C, B = lcs_length_with_tables(X, Y)
 
 # Find length of LCS
@@ -42,4 +54,5 @@ lcs_length = C[len(X)][len(Y)]
 print("Length of LCS:", lcs_length)
 
 # Print LCS
-print("LCS:", print_lcs(C, X, Y, len(X), len(Y)))
+# print(print_lcs(C, X, Y, len(X), len(Y)))
+PRINTlcs(C, X, Y, len(X), len(Y))

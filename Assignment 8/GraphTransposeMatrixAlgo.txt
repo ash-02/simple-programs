@@ -1,0 +1,8 @@
+GraphTranspose-Matrix(AdjacencyMatrix G, AdjacencyMatrix GT):
+        for i = 1 to G.rows
+                for j = 1 to G.columns
+                        GT[i][j] = 0;
+
+        for i = 1 to G.rows
+                for j = 1 to G.columns
+                        GT[j][i] = G[i][j];

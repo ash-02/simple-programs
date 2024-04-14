@@ -6,7 +6,7 @@ def partition(arr, p, r):
         if arr[j] < pivot:
             a += 1
             b += 1
-            arr[a], arr[j] = arr[j], arr[a]
+            # arr[a], arr[j] = arr[j], arr[a]
             if a != b:
                 arr[b], arr[j] = arr[j], arr[b]
         elif arr[j] == pivot:
@@ -19,6 +19,7 @@ def partition(arr, p, r):
 def quick_sort(arr, p, r):
     if p < r:
         q, t = partition(arr, p, r)
+        print("q =", q, "t =", t)
         quick_sort(arr, p, q - 1)
         quick_sort(arr, t + 1, r)
 

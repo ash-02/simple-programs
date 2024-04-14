@@ -1,0 +1,7 @@
+In order to create a transpose of the adjacency list we can use following strategy. First we can loop through the array of linked lists and for each linked list we iterate through them. If we are in the linked list for vertex 1 and encounter a vertex, say vertex 2, we add a new entry into the linked list of vertex 2 to add a edge to vertex 1. We can do this similarly for all the vertices. This whole algorithm takes O(V + E) because we loop through all the vertices and an internal loop iterates through all the edges.
+
+GraphTranspose-list(AdjacencyList G, V, E):
+        AdjacencyList GT = new AdjacencyList()
+        for each vertex v in G :
+                for each vertex u in G[v] :
+                        GT[u].add(v)
